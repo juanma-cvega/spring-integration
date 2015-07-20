@@ -1,19 +1,19 @@
 package com.jusoft.spring.integration.example.app;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-//@Slf4j
+import com.jusoft.spring.integration.example.config.JmsConfig;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Main {
-	final static Logger logger = LoggerFactory.getLogger(Main.class);
 
 	public static void main(final String... args) {
 
-		// AnnotationConfigApplicationContext ctx = new
-		// AnnotationConfigApplicationContext(
-		// JmsConfig.class);
-		logger.info("Start....");
-		// ctx.registerShutdownHook();
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JmsConfig.class);
+		log.info("Start....");
+		ctx.registerShutdownHook();
 
 	}
 }
